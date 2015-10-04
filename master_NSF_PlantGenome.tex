@@ -1,0 +1,75 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{comment}
+
+\pagestyle{plain}
+\usepackage[text={6in,8.5in},centering]{geometry}
+
+%PUT YOUR MACROS HERE
+\usepackage{change page} % for indentation of sections
+\usepackage{lipsum}
+\usepackage{hyperref} %for urls
+\usepackage{graphicx} %for includegraphics
+\usepackage[table]{xcolor} %for table line color alteration
+\usepackage{enumitem}  %fancy enumerated lists
+\usepackage{wrapfig} %wrap text around figures
+\usepackage[leftcaption]{sidecap} % side captions
+\sidecaptionvpos{figure}{c} %position side caption
+\usepackage[colorinlistoftodos]{todonotes} % comments in margins
+\usepackage[round,authoryear]{natbib} %biblio format!
+
+%%%%%%%%%% EXACT 1in MARGINS %%%%%%%				%%
+%\setlength{\textwidth}{6.5in}		%%							%%
+%\setlength{\oddsidemargin}{0in}	%% (It is recommended that you	%%
+%\setlength{\evensidemargin}{0in} 	%%  not change these parameters,	%%
+%\setlength{\textheight}{8.5in}		%%  at the risk of having your		%%
+%\setlength{\topmargin}{0in}		%%  proposal dismissed on the basis%%
+%\setlength{\headheight}{0in}		%%  of incorrect formatting!!!)		%%
+%\setlength{\headsep}{0in}		%%							%%
+%\setlength{\footskip}{.5in}		%%							%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	%%
+\newcommand{\required}[1]{\section*{\hfil #1\hfil}}					%%
+\renewcommand{\refname}{\hfil References Cited\hfil}				%%
+\bibliographystyle{abbrvnat}									%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{NSF PRFB - Plant Genome}
+\author{Kimberly J. Gilbert}
+\date{October 2015}
+
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%		Project Summary		%%%%%%%%%%%%%
+\setcounter{page}{1}
+\include{Summary}% Max 1 page
+
+%%%%%%%%%%%%%		Project Description		%%%%%%%%%%%%%
+\setcounter{page}{1}
+\include{ProjectDescription}
+
+%%%%%%%%%%%%%		References			%%%%%%%%%%%%%
+\setcounter{page}{1}
+\include{References}
+
+%%%%%%%%%%%%%		Biosketch				%%%%%%%%%%%%%
+\setcounter{page}{1}
+\include{Biosketch}
+
+\clearpage
+\newpage
+% Supplementary Documents
+
+%%%%%%%%%%%%%		Data Management Plan	%%%%%%%%%%%%%
+\setcounter{page}{1}
+\include{DataManagement}
+
+%%%%%%%%%%%%%		Dissertation Summary	%%%%%%%%%%%%%
+\setcounter{page}{1}
+\include{DissertationSummary}
+
+
+
+\end{document}
