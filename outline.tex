@@ -1,0 +1,118 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{comment}
+
+\pagestyle{plain}
+\usepackage[text={6in,8.5in},centering]{geometry}
+
+%PUT YOUR MACROS HERE
+\usepackage{change page} % for indentation of sections
+\usepackage{lipsum}
+\usepackage{hyperref} %for urls
+\usepackage{graphicx} %for includegraphics
+\usepackage[table]{xcolor} %for table line color alteration
+\usepackage{enumitem}  %fancy enumerated lists
+\usepackage{wrapfig} %wrap text around figures
+\usepackage[leftcaption]{sidecap} % side captions
+\sidecaptionvpos{figure}{c} %position side caption
+\usepackage[colorinlistoftodos]{todonotes} % comments in margins
+\reversemarginpar %comments on left
+\setlength{\marginparwidth}{2.5cm} %width of comments
+\usepackage[round,authoryear]{natbib} %biblio format!
+
+%%%%%%%%%% EXACT 1in MARGINS %%%%%%%				%%
+%\setlength{\textwidth}{6.5in}		%%							%%
+%\setlength{\oddsidemargin}{0in}	%% (It is recommended that you	%%
+%\setlength{\evensidemargin}{0in} 	%%  not change these parameters,	%%
+%\setlength{\textheight}{8.5in}		%%  at the risk of having your		%%
+%\setlength{\topmargin}{0in}		%%  proposal dismissed on the basis%%
+%\setlength{\headheight}{0in}		%%  of incorrect formatting!!!)		%%
+%\setlength{\headsep}{0in}		%%							%%
+%\setlength{\footskip}{.5in}		%%							%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	%%
+\newcommand{\required}[1]{\section*{\hfil #1\hfil}}					%%
+\renewcommand{\refname}{\hfil References Cited\hfil}				%%
+\bibliographystyle{abbrvnat}									%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\jri}[1]{\todo[size=\scriptsize, color=red]{#1}}
+\newcommand{\kjg}[1]{\todo[size=\scriptsize, color=blue]{#1}}
+
+\title{NSF PRFB - Plant Genome}
+\author{Kimberly J. Gilbert}
+\date{October 2015}
+
+\begin{document}
+
+\section{Summary}
+
+how does the genetic architecture of quantitative traits change as a result of demography and selection during the maize domestication bottleneck and the further bottleneck from C America to S America for some maize pops
+	
+if we compare maize and teosinte (which are locally adapted in their respective pops), do we see evidence of:
+	many genes of small effect, few genes of large effect underlying important traits?
+	do these differences match our predictions based on the effects their diff. demographic histories should have had?
+	
+could inform on maintaining diversity in crops for the future in ways that may have much larger long term impacts in the maintenance of diversity as well as fitness/adaptation in the face of climate change
+
+\section*{Intro}
+	
+genetic architecture underlying traits affects how easy/hard and quick/slow local adaptation can occur. important for breeding, conservation, predicting response to climate change, etc.
+useful info for crops/domesticated species (and also things like disease in humans?)
+	
+selection interacts with demography. $N_es>1$ for selection to win.
+as demography changes, $N_es$ changes.
+demography also can lead to purging (recessives become homozygous and removed in smaller pops), but also increase in deleterious alleles (surfing phenomenon)
+mutations that affect a trait related to fitness will then be impacted by demography x selection interaction.
+in annual plants, nearly ALL traits related to fitness
+we thus predict that genetic architecture (number and size of mutations) should be impacted by demographic change.
+this is not understood well in any system. controversial in humans (lohmueller vs. pritchard etc.). in plants, summaries are on gross overall $N_e$ (small vs. big) and ignore recent demographic change.
+
+\section*{Proposed Research}
+	
+in the maize/teosinte system, there is a solid understanding of demographic history, from
+domestication $\approx$9000 years ago in SW Mexico.
+bottleneck, recent expansion. 
+cite Beissinger in prep (github repo) and briefly explain findings (bneck to 5\% 9K years ago, followed by humongous growth to at least 300K but maybe as much as 1E9
+	
+%using genomic data from both maize and teosinte across their species' ranges, we can compare
+%	classes of functional diversity, using e.g. GERP scores, across pops of different demographic history
+%	look at the distribution of these as well as in beneficial traits if possible
+%can compare these results to simulations parameterized to match known demog. of teosinte/maize
+
+also have great data on quant traits. will need to explain rare alleles pops and experiment some.
+
+\subsection{Obj 1 - Estimate the DFE}
+	from polymorphism/divergence data. use HapMap2 or current teosinte genomes (I think I'd vote for latter)
+	\url{http://goo.gl/CLmsmX} and \url{http://www.genetics.org/content/177/4/2251.short})
+	can either use estimated demographic model or use noncoding sites to normalize SFS
+	
+	can compare to e.g. GERP distribution perhaps as validation?
+		
+	\kjg{this gets at magnitude of effect, but also want to get at how many loci may be contributing to any given trait?}
+    \jri{nope. we just need DFE. see obj 2}
+
+	
+\subsection{Obj 2 - Simulate scenarios of different traits.}
+	
+	simulate using estimated demography and DFE.
+	simulate traits w/ varying correlation with fitness
+	new mutation effects on fitness determined by DFE, effect on trait by correlation between trait and fitness
+	
+	evaluate:
+		how many loci contribute to important traits?
+		how strong are these effects?
+		how do details of demography impact outcome?
+		test against theory e.g \url{http://arxiv.org/abs/1312.3028}
+	
+	(could also do some broader simulated examples just to stand alone and see if other various outcomes may occur - just don't plan on comparing these to any real data)\jri{yes, once we can show we can recapitulate real data, i think this is useful}
+
+\subsection{Obj 3 - compare simulation results to modern maize genomes, known to have undergone the same demographies simulated in objective 2}%
+	compare to GWAS for maize/teo. do we recapitulate oversvations? if not, why? 
+	are there differences between central and southern American pops? \jri{we have no GWAS data for S.Amer. pops, but do have genomes and GERP. we could get freq. etc. of del. mutations from sims and compare to GERP}
+
+Other larger picture impacts/intellectual merit?
+
+it is thought, and shown in some human pops, that demog. history such as expansion leads to an increase in delet alleles, and of larger effects - b/c of continued inferred expansions and bottlenecks. 
+is there any evidence of this in maize?
+\jri{see ideas and text in ``service\_award.tex'' that I uploaded too.}
+	
+\end{document}
