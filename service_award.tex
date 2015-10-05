@@ -1,0 +1,127 @@
+%\documentclass[11pt]{article}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{natbib}
+%\usepackage{graphicx}
+%\usepackage{subcaption}
+%\usepackage{booktabs}
+%\usepackage[rightcaption]{sidecap} % side captions
+%
+%\bibliographystyle{plain}
+%\begin{document}
+%\title{Deleterious alleles and the genetic basis of crop phenotypes}
+%\date{}
+%\author{}
+%\maketitle
+
+The phenotypes Mendel used to derive the fundamental laws of inheritance were simple: round and wrinkled, green or yellow -- single genes controlling single traits. 
+Most phenotypes of interest in biology, however, are quantitative: tens to thousands of genes each contributing to the heritable phenotypic variation present among individuals.
+Traditional methods to map the loci responsible for quantitative traits involve crossing phenotypically divergent individuals and genotyping their offspring, but these approaches have poor resolution to identify individual genes. 
+More recently, as inexpensive sequencing has accelerated the collection of genetic data, genome-wide association studies (GWAS) -- in which phenotypes from unrelated individuals are statistically associated with genetic markers -- have become widely used (for a comparison of these methods see reference \citep{morrell2011crop}).
+
+While GWAS have substantially improved the genetic resolution with which phenotypes can be mapped, they have also raised a host of new questions. 
+Perhaps most intriguingly, and in spite of identifying a large number of individual genes underlying complex traits such as height, many GWAS have been unable to explain more than a small proportion of the heritable genetic variation for phenotypes of interest.  
+A number of hypotheses have been proposed to explain this ``missing heritability''  \citep{gibson2012rare}, but perhaps the most convincing yet offered is that many causal variants are likely to be deleterious -- mutations that negatively affect the phenotype.
+Deleterious alleles will be kept at low frequency by the natural selection, meaning that most samples will have low statistical power to detect them.
+Many association methods, in fact, are unable to detect deleterious variants of large effect, identifying instead other loci of smaller effect \citep{Thornton2013}.
+The frequency and distribution of deleterious alleles are sensitive to changes in population size \citep{Fu2014}, and demographic change may increase the contribution of deleterious alleles to heritable variation for a trait \citep{Lohmueller2014}. 
+
+Quantitative phenotypes such as yield, plant height, and flowering time are of critical importance to agriculture.  
+Deleterious alleles likely play a large role in many of these phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes \citep{gunther2010deleterious}. 
+Consistent with this hypothesis, my lab has recently shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles  compared to randomly chosen genes \citep{mezmouk2014pattern}. 
+However, while we know that demography impacts the frequency of individual deleterious variants, we have a poor understanding of the interaction of demography and selection on phenotypic variation. 
+In particular, we know little about how these two forces interact to determine the genetic architecture -- the number of genes and their effect -- of a trait. 
+Such information is crucial for understanding variation in phenotype, designing breeding strategies, utilizing diversity from wild relatives, or even engineering new traits using biotechnology. 
+{\bf I propose to write simulation software that will enable researchers to investigate the combined impact of demography and selection on quantitative traits and test these predictions against empirical data from maize and its wild relative teosinte.}
+
+%\begin{figure}[h]
+%\centering
+%\begin{subfigure}{.5\textwidth}
+%  \centering
+%   \includegraphics[width=0.8\textwidth]{pairwise.png}
+%  \caption{All polymorphisms}
+%  \label{fig:sub1}
+%\end{subfigure}%
+%\begin{subfigure}{.5\textwidth}
+%  \centering
+%   \includegraphics[width=0.8\textwidth]{singletons.png}
+%  \caption{Young polymorphisms}
+%  \label{fig:sub2}
+%\end{subfigure}
+%\caption{Pairwise nucleotide diversity as a function of distance from genes; shown for \ref{fig:sub1}) all alleles and \ref{fig:sub2}) for singleton polymoprhisms likely to have arisen since domestication. }
+%\label{fig:test}
+%\end{figure}
+
+\section*{Specific aims}
+
+I will write software to simulate the joint impacts of demographic change and selection on the genetic architecture of quantitative traits.
+I will utilize this software to estimate the effects of new mutations, and then test the software predictions against empirical data from field trials of both maize and its wild relative teosinte.
+
+\subsection{Simulation software} \label{subsec:sims}
+
+A number of current software packages exist for simulating genetic data (reviewed in \citep{Hoban2012}), but none currently allow simultaneous generation of complex demography, natural selection, and quantitative phenotypes.
+The recent development of the \emph{fwdpp} C++ simulation library \citep{Thornton2014}, however, provides the functionality to now write such software, and has already been used to write organism-specific simulations incorporating both deleterious mutations and their effect on phenotype \citep{Thornton2013}.
+{\bf I will write simulation software that incorporates complex demography and selection to generate both genetic and phenotypic data.} 
+I will use the classes developed in the \emph{fwdpp} library to implement the simulation software.
+The \emph{fwdpp} library already has functions to evolve phenotypes, mutate sequences, and modify demographic histories, and I have previous experience writing simulation software using similar C++ libaries \citep{Ross-Ibarra2009,Hollister2010,Shi2010}. 
+
+%%%%%MODEL
+\begin{SCfigure}
+\centering
+   \includegraphics[width=0.4\textwidth]{model.pdf}
+  \caption{Demographic model of maize and teosinte. Effective population sizes are shown as a function of the ancestral population size $N_a$ and migration rates in terms of effective number of individuals.}
+  \label{fig:model}
+\end{SCfigure}
+%%%%%MODEL
+
+\subsection{Distribution of fitness effects of new mutations} \label{subsec:DFE}
+
+In order to simulate phenotypes, we need to understand the effects of new mutations on fitness, or an individual's ability to survive and reproduce.
+%Because much of natural selection can be thought of as competition among individuals, for most purposes an individual's fitness can be quantified in relation to other individuals in the population.
+%The consequence of a particular allele is then usually considered in terms of its impact on an individual's relative fitness.  
+%At a single locus, for example, we can consider the effect of an allele $A_2$ on the fitness of a diploid individual as follows:
+%
+%\begin{table}[h!]
+%\centering
+%\begin{tabular}{@{}ccc@{}}
+%\toprule
+%$A_1A_1$ & $A_1A_1$ &  $A_1A_1$  \\ \midrule
+%$1$ & $1-hs$ &  $1-s$   \\ 
+%\bottomrule
+%\end{tabular}
+%\end{table}
+%
+%where $h$ represents the dominance of the allele and $s$ its additive effect on fitness.  
+The distribution of the reduction in fitness due to a new mutation at a locus is referred to as the distribution of fitness effects (DFE).
+For most organisms, however, the DFE is unknown and difficult to estimate in the absence of demographic information.
+My lab has recently used genome-wide diversity data in maize to estimate the first completely specified demographic model of maize domestication (Fig. \ref{fig:model}), and {\bf I will use the simulation software developed in Aim \ref{subsec:sims} to estimate the DFE of new mutations in maize and teosinte using approximate Bayesian computation.}
+Approximate Bayesian computation (ABC) is an intuitively simple Monte Carlo approach for estimation that makes use of extensive simulation \citep{Beaumont2002} to estimate parameters of interest.
+Parameter values are chosen from a prior distribution, and values which generate simulated data similar to observed data are retained and form the posterior distribution of the parameter of interest.  
+I have substantial experience in performing ABC using a wide variety of genetic data\citep{Lockton2008,Ross-Ibarra2008,Ross-Ibarra_2009,Shi2010}.
+Here, I will use ABC methods to estimate the DFE in maize and teosinte via simulation under our demographic model, comparing simulated data to my lab's previous empirical observations of genome-wide patterns of diversity in maize and teosinte \citep{Hufford2012b}.
+
+\subsection{Validation} \label{subsec:validation}
+
+{\bf I will use empirical maize and teosinte phenotype data to validate the predictions made by software written in Aim \ref{subsec:sims}.} 
+Phenotypic data simulated using the software developed in Aim \ref{subsec:sims} and the estimated demographic model (Fig. \ref{fig:model}) and DFE (Aim \ref{subsec:DFE}) will be compared to results from an ongoing genome-wide association study in which our collaborators have genotyped and phenotyped individual maize and teosinte plants for a number of traits (Fig. \ref{fig:data}).
+Because we can estimate heritability (the proportion of the total phenotypic variance due to additive genetic variance) and the correlation of each trait with individual fitness from this data, it is directly comparable to phenotypes evolved using the simulation software. 
+If the estimated demographic model and DFE are reasonable, the genetic architecture of simulated phenotypes should closely mimic that of real data.
+If the real data differ from simulation, I can explore the sensitivity of genetic architecture to changes to the demography or DFE; understanding this sensitivity will then lead to improved estimation of these important parameters.
+
+\section*{Timeline}
+I will write the software in Aim \ref{subsec:sims} primarily in the Fall of 2015. 
+Estimation of the DFE in Aim \ref{subsec:DFE} is computationally intensive but relatively fast, and should be done shortly after completion of the software.
+By the end of 2015 association analysis of both maize and teosinte populations will be completed by our collaborators, providing data needed for validation.
+In Winter 2016 I plan to complete the comparison of empirical and simulated data in Aim \ref{subsec:validation} and any sensitivity analyses.  
+By Summer 2016 I hope to have a manuscript on the software and its utility in analyzing the effects of demography and selection on phenotypes ready for submission.
+
+\begin{SCfigure}
+\centering
+   \includegraphics[width=0.4\textwidth]{h2}
+  \caption{Estimates of the proportion of phenotypic variance due to additive (h2) and dominance (Vd\_Vp) effects and the percentage inbreeding depression  (ID\_perc) are shown for each of 16 phenotypes measured in a natural population of teosinte.}
+  \label{fig:data}
+\end{SCfigure}
+
+
+\pagebreak
+\bibliography{/Users/jri/Documents/references/references.bib}
+%\end{document}
