@@ -5,7 +5,9 @@ Application for NSF Post-doc fellowship
 
 ## Files
 
-master_NSF_PlantGenome.tex is the only file that gets compiled
+master_NSF_PlantGenome.tex is the only file that gets compiled for the application
+
+outline.tex contains project thoughts/ideas/planning stages
 
 Main files:
 

@@ -16,6 +16,8 @@
 \usepackage[leftcaption]{sidecap} % side captions
 \sidecaptionvpos{figure}{c} %position side caption
 \usepackage[colorinlistoftodos]{todonotes} % comments in margins
+\reversemarginpar %comments on left
+\setlength{\marginparwidth}{2.5cm} %width of comments
 \usepackage[round,authoryear]{natbib} %biblio format!
 
 %%%%%%%%%% EXACT 1in MARGINS %%%%%%%				%%
@@ -32,6 +34,10 @@
 \renewcommand{\refname}{\hfil References Cited\hfil}				%%
 \bibliographystyle{abbrvnat}									%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% allow comments in the margins:
+\newcommand{\jri}[1]{\todo[size=\scriptsize, color=red]{#1}}
+\newcommand{\kjg}[1]{\todo[size=\scriptsize, color=blue]{#1}}
+%
 
 \title{NSF PRFB - Plant Genome}
 \author{Kimberly J. Gilbert}
