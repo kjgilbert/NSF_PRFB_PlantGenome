@@ -86,12 +86,13 @@ This system thus serves as a great resource to compare the effects of this histo
 
 
 \subsection{Obj 1 - Estimate the Distribution of Fitness Effects (DFE)}
-	using teosinte genomes
-		from polymorphism/divergence data. use HapMap2 or current teosinte genomes (I think I'd vote for latter)
+
+	using teosinte genomes \kjg{note to self, update the data description}\\
+		- from polymorphism/divergence data. use HapMap2 or current teosinte genomes (I think I'd vote for latter)
 		\url{http://goo.gl/CLmsmX} and \url{http://www.genetics.org/content/177/4/2251.short})
 		can either use estimated demographic model or use noncoding sites to normalize SFS
 		
-	estimate the DFE using Eyre-Walker's DoFE \url{http://www.lifesci.susx.ac.uk/home/Adam_Eyre-Walker/Website/Software.html}
+	Methods: estimate the DFE using Eyre-Walker's DoFE \url{http://www.lifesci.susx.ac.uk/home/Adam_Eyre-Walker/Website/Software.html}
 	
 \kjg{this part prob not in proposal:}
 	can validate by comparing to
@@ -103,14 +104,21 @@ This system thus serves as a great resource to compare the effects of this histo
 %    \jri{nope. we just need DFE. see obj 2}
 
 	useful because the distribution of mutation effect sizes is not generally known, and is especially difficult for small effect mutations.
-	objective 1 will inform perhaps what the DFE may look like in any organism with a history similar to teosinte? and just in general add to the body of literature on genetic architecture, mutation effects
+	objective 1 will inform perhaps what the DFE may look like in any organism with a history similar to teosinte? 
+	and just in general add to the body of literature on genetic architecture, mutation effects
 
 	
 \subsection{Obj 2 - Simulate scenarios of different traits.}
 	
-	simulate using estimated demography and DFE.
-	simulate traits w/ varying correlation with fitness
-	new mutation effects on fitness determined by DFE, effect on trait by correlation between trait and fitness
+	from objective 1 we now know the DFE of teosinte
+	we already know the demographic history of maize since its split from teosinte (citations)
+	
+	use the DFE results to parameterize a model that will simulate the evolution of maize and its genetic architecture through time during and since its domestication
+	we can simulate maize that expanded into S America separately since it has a different demography and then compare any differences the regions may show in the end
+		simulate traits w/ varying correlation with fitness
+		new mutation effects on fitness determined by DFE, effect on trait by correlation between trait and fitness
+	
+	Methods: fwdpy (python version of fwdpop, cite \url{http://www.genetics.org/content/198/1/157.abstract})
 	
 	evaluate:
 		how many loci contribute to important traits?
@@ -118,16 +126,33 @@ This system thus serves as a great resource to compare the effects of this histo
 		how do details of demography impact outcome?
 		test against theory e.g \url{http://arxiv.org/abs/1312.3028}
 	
+	standing questions:
+		does the DFE significantly change in a meaningful way or a certain direction?
+			mean value the same but narrower or wider distribution?
+			skewed more one way or the other?
+		might expect this to be a different answer for maize in S America vs Central since S America has had a second bottleneck, so more founder effects and more chance for drift
+	
 	(could also do some broader simulated examples just to stand alone and see if other various outcomes may occur - just don't plan on comparing these to any real data)\jri{yes, once we can show we can recapitulate real data, i think this is useful}
 
 \subsection{Obj 3 - compare simulation results to modern maize genomes, known to have undergone the same demographies simulated in objective 2}%
-	compare to GWAS for maize/teo. do we recapitulate oversvations? if not, why? 
+	compare to GWAS for maize/teo. do we recapitulate observations? if not, why? 
 	are there differences between central and southern American pops? \jri{we have no GWAS data for S.Amer. pops, but do have genomes and GERP. we could get freq. etc. of del. mutations from sims and compare to GERP}
+	
+	Methods: same DoFE approach in C American maize pops for direct comparison
+		in S American pops, can do comparison on subset, e.g. GERP, which we would have from Obj 1 if we compare to other approaches for the sort of validation of the DFE
+			(definitely worth doing if b/c of 2nd bottleneck more deleterious stuff rose in frequency and was then eliminated)
 
-Other larger picture impacts/intellectual merit?
+\subsection*{Big picture thoughts}
 
 it is thought, and shown in some human pops, that demog. history such as expansion leads to an increase in delet alleles, and of larger effects - b/c of continued inferred expansions and bottlenecks. 
 is there any evidence of this in maize?
+
+Quantitative phenotypes such as yield, plant height, and flowering time are of critical importance to agriculture.  
+Deleterious alleles likely play a large role in many of these phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes (cite gunther2010). 
+Consistent with this hypothesis, my lab has recently shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles  compared to randomly chosen genes (cite mezmouk2014).
+However, while we know that demography impacts the frequency of individual deleterious variants, we have a poor understanding of the interaction of demography and selection on phenotypic variation. 
+In particular, we know little about how these two forces interact to determine the genetic architecture -- the number of genes and their effect -- of a trait. 
+Such information is crucial for understanding variation in phenotype, designing breeding strategies, utilizing diversity from wild relatives, or even engineering new traits using biotechnology. 
 \jri{see ideas and text in ``service\_award.tex'' that I uploaded too.}
 	
 \end{document}
