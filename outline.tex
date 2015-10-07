@@ -118,7 +118,7 @@ This system thus serves as a great resource to compare the effects of this histo
 		simulate traits w/ varying correlation with fitness
 		new mutation effects on fitness determined by DFE, effect on trait by correlation between trait and fitness
 	
-	Methods: fwdpy (python version of fwdpop, cite \url{http://www.genetics.org/content/198/1/157.abstract})
+	Methods: fwdpy (python version of fwdpop, cite \url{http://www.genetics.org/content/198/1/157.abstract}), allows simultaneous generation of complex demography, natural selection, and quantitative phenotypes, including deleterious mutations and their effect on phenotype
 	
 	evaluate:
 		how many loci contribute to important traits?
@@ -135,12 +135,17 @@ This system thus serves as a great resource to compare the effects of this histo
 	(could also do some broader simulated examples just to stand alone and see if other various outcomes may occur - just don't plan on comparing these to any real data)\jri{yes, once we can show we can recapitulate real data, i think this is useful}
 
 \subsection{Obj 3 - compare simulation results to modern maize genomes, known to have undergone the same demographies simulated in objective 2}%
-	compare to GWAS for maize/teo. do we recapitulate observations? if not, why? 
+	compare to GWAS for maize/teo. do we recapitulate observations?
+		several traits are genotyped/phenotyped in maize/teosinte
+		If the estimated demographic model and DFE are reasonable, the genetic architecture of simulated phenotypes should closely mimic that of real data.
 	are there differences between central and southern American pops? \jri{we have no GWAS data for S.Amer. pops, but do have genomes and GERP. we could get freq. etc. of del. mutations from sims and compare to GERP}
 	
 	Methods: same DoFE approach in C American maize pops for direct comparison
 		in S American pops, can do comparison on subset, e.g. GERP, which we would have from Obj 1 if we compare to other approaches for the sort of validation of the DFE
 			(definitely worth doing if b/c of 2nd bottleneck more deleterious stuff rose in frequency and was then eliminated)
+
+% imp. point from Jeff's service.tex file
+	If the real data differ from simulation, we can explore the sensitivity of genetic architecture to changes to the demography or DFE; understanding this sensitivity will then lead to improved estimation of these important parameters.
 
 \subsection*{Big picture thoughts}
 
