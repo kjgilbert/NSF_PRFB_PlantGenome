@@ -3,3 +3,5 @@ TSW*
 *.log
 *.out
 *.gz
+*.bbl
+*.blg
