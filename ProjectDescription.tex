@@ -48,8 +48,14 @@ In this research project I propose three objectives which make use of the extens
 \section*{B. Research Objectives, Methods \& Significance}
 \subsection*{Objective I: Investigate the genetic architecture of important traits in teosinte}
 
-This first objective aims to estimate the distribution of fitness effects (DFE) in teosinte (\emph{genus spp}).
+This first objective aims to estimate the distribution of fitness effects (DFE) in teosinte (\emph{Zea mays parviglumis}), the wild progenitor of domestic maize. The DFE describes the fitness effects of various mutations that are possible within the genome. Mutations can broadly be classified as beneficial, deleterious, or neutral, but in actuality, mutation effect sizes occur on a continuum of strongly deleterious to strongly beneficial, with any value in between. Characterizing the DFE of teosinte uncovers whether the genetic architecture of important quantitative phenotypic traits in teosinte are underlain by many loci of small effect, few loci of large effect, or any combination therein.
 
+Estimating the DFE in teosinte will contribute not only to the purposes of this study, but inform a larger body of work aimed at understanding how common different genetic architectures are for traits important in adaptation. The DFE is difficult to estimate and not broadly understood in evolutionary biology for any given organism or in terms of how much it may vary across organisms. This difficulty arises particularly for cases where there are many loci of small effects: such small effect sizes are difficult to detect on an individual basis. This has implications for studies attempting to identify loci important in adaptation struggle when each locus out of many may only contribute a small amount to the trait (cite Outi Savolainen's work in Scots pine). Thus, studies that aim to identify loci important in adaptation will benefit from knowledge on the range of mutation effect sizes they may expect to see when performing genotype-environment associations or genome-wise association studies (GWAS). 
+
+With the vast genomic resources available in maize, an accurate DFE should be estimable. Using 70 individuals sequenced from a population of teosinte as well as 2500 individuals with genotyping by sequencing (GBS) data\kjg{I might have this data description wrong Jeff? I had in my notes also 4 additional pops in the GWAS study? I think I probably need to add a little more detail on the datasets too}, the distribution of fitness effects can be estimated using the DoFE software [cite Fay, Wycoff and Wu (2001), Smith and Eyre-Walker (2002), Bierne and Eyre-Walker (2004) and Eyre-Walker and Keightley (2009), Stoletzki and Eyre-Walker (2011)] which runs a variety of analyses to estimate the components of the distribution of fitness effects. We can apply this methods to sequence data from regions of the genome known to underly important phenotypic traits. Some such quantitative phenotypes include yield, plant height, and flowering time, which are of critical importance to agriculture (cite).
+
+Additionally, it will be possible to validate some of the performance of DoFE on the portion of loci that are inferred to be deleterious. Additional approaches such as GERP or Provean scores (cite) aim to classify the degree of effect size for deleterious mutations, as well as approaches that partition variance components of quantitative traits.
+	
 
 \subsection*{Objective II: Simulate the demographic history of maize domestication from teosinte}
 Maize was domesticated in...
@@ -68,6 +74,12 @@ this is not understood well in any system. controversial in humans (lohmueller v
 
 
 \subsection*{Objective III: Estimate and compare the genetic architecture underlying traits in maize post-domestication from simulations and genomic data} 
+
+Deleterious alleles likely play a large role in many of these phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes (cite gunther2010). 
+Consistent with this hypothesis, my lab has recently shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles  compared to randomly chosen genes (cite mezmouk2014).
+
+
+
  rationale and significance
 
 
@@ -81,9 +93,7 @@ this is not understood well in any system. controversial in humans (lohmueller v
 
 \begin{comment}
 
-Some such quantitative phenotypes include yield, plant height, and flowering time, which are of critical importance to agriculture.  
 
-Quantitative phenotypes such as yield, plant height, and flowering time are of critical importance to agriculture.  
 Deleterious alleles likely play a large role in many of these phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes (cite gunther2010). 
 Consistent with this hypothesis, my lab has recently shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles  compared to randomly chosen genes (cite mezmouk2014).
 However, while we know that demography impacts the frequency of individual deleterious variants, we have a poor understanding of the interaction of demography and selection on phenotypic variation. 
@@ -104,29 +114,7 @@ will need to explain rare alleles pops and experiment some (PGRP15 grant)
 This system thus serves as a great resource to compare the effects of this history on the genome in maize versus its extant, wild ancestor teosinte, particularly to investigate how the genetic architecture of these important traits may have evolved differently as a result of this combination of demography and selection.
 
 
-\subsection{Obj 1 - Estimate the Distribution of Fitness Effects (DFE)}
 
-	using teosinte genomes \kjg{note to self, update the data description}\\
-		- from polymorphism/divergence data. use HapMap2 or current teosinte genomes (I think I'd vote for latter)
-		\url{http://goo.gl/CLmsmX} and \url{http://www.genetics.org/content/177/4/2251.short})
-		can either use estimated demographic model or use noncoding sites to normalize SFS
-		
-	Methods: estimate the DFE using Eyre-Walker's DoFE \url{http://www.lifesci.susx.ac.uk/home/Adam_Eyre-Walker/Website/Software.html}
-	
-\kjg{this part prob not in proposal:}
-	can validate by comparing to
-		GERP distribution
-		partitioning variance components, e.g. \url{http://www.ncbi.nlm.nih.gov/pubmed/25439723}
-		GREML software
-				
-%	\kjg{this gets at magnitude of effect, but also want to get at how many loci may be contributing to any given trait?}
-%    \jri{nope. we just need DFE. see obj 2}
-
-	useful because the distribution of mutation effect sizes is not generally known, and is especially difficult for small effect mutations.
-	objective 1 will inform perhaps what the DFE may look like in any organism with a history similar to teosinte? 
-	and just in general add to the body of literature on genetic architecture, mutation effects
-
-	
 \subsection{Obj 2 - Simulate scenarios of different traits.}
 	
 	from objective 1 we now know the DFE of teosinte
