@@ -66,7 +66,7 @@ Maize originated approximately 9,000 years ago in southern Mexico (cite Matsuoka
 % simulate it with fwdpy
 The information described above can be used to parameterize simulations of maize genomes undergoing this same demographic history. The DFE of teosinte established from objective 1 provides the necessary parameters for the number of loci and their various effect sizes to be modeled as contributing to each phenotypic trait of interest. Population sizes can be matched to those known during the domestication process, enforcing the desired demographic history, and mutations can be induced at the inferred rates to create simulations as accurate to reality as possible. \kjg{have/need info on recombination/linkage?} The forward simulation program fwdpy (a Python implementation of fwdpp, cite) provides the framework for performing these simulations of complex demographies with natural selection. This approach allows explicit modeling of the genomic architecture desired: distribution of effect sizes across the desired number of loci, including deleterious mutations and their effects on the phenotype. Recombination parameters, as well as setting population sizes, and even sampling from simulated populations is possible.
 
-I will simulate the various landraces of maize which each have a different demographic history during their spread across Central and South America into both lowland and highland environments.\kjg{I think this could be interesting, even if we can't compare them all in the end to real data since we only have it for some - unless it might be in the scope of this project to try and generate some of that data} I can then compare the different genetic architectures that evolve from these various conditions. From the simulation results, I will evaluate how many loci are found to contribute to phenotypically important traits (on average and how variable this number is), how strong the mutational effects are at each locus and if and how this relates to the number of loci contributing. This will allow assessment of how important the details of demography are in determining the genetic architecture of local adaptation to different (lowland vs. highland) or similar (lowland Mexico vs. lowland S. America) conditions.\kjg{does this make any sense/is it a valid comparison?}
+I will simulate the various landraces of maize which each have a different demographic history during their spread across Central and South America into both lowland and highland environments.\kjg{I think this could be interesting, even if we can't compare them all in the end to real data since we only have it for some - unless it might be in the scope of this project to try and generate some of that data}\jri{we have no GWAS data for S.Amer. pops, but do have genomes and GERP. we could get freq. etc. of del. mutations from sims and compare to GERP} I can then compare the different genetic architectures that evolve from these various conditions. From the simulation results, I will evaluate how many loci are found to contribute to phenotypically important traits (on average and how variable this number is), how strong the mutational effects are at each locus and if and how this relates to the number of loci contributing. This will allow assessment of how important the details of demography are in determining the genetic architecture of local adaptation to different (lowland vs. highland) or similar (lowland Mexico vs. lowland S. America) conditions.\kjg{does this make any sense/is it a valid comparison?}
 
 \kjg{goes in intellectual merit section?}
 Objective 2 will inform whether the DFE changes under certain demographies, and if so whether there is any meaningful direction in this change. We may hypothesize changes to a wider or narrower or more skewed distribution of fitness effects depending on the demography at hand. Population bottlenecks are a common demographic occurrence during the geographic spread of populations (cite) which will be included in our simulations. Such bottlenecks reduce population sizes greatly, and this reduction can have several effects on the genome including purging of deleterious alleles (recessive alleles become homozygous and are more efficiently removed), or alternatively may lead to an increase of some deleterious alleles through increased random genetic drift (allele surfing, cite Klopfstein et al 2006). The effects of these processes varies depending on the degree of population size reduction and the length of time over which populations are bottlenecked (cite bottleneck lit). The second bottleneck of S. American populations may thus result in a difference between landraces in terms of genetic architecture of adaptive traits. 
@@ -76,52 +76,16 @@ These hypothesized changes in the DFE are not well understood in any system and 
 % use the same traits from obj. 1, need to describe them there more?
 % because then in this section, want to simulate traits w/ varying correlation with fitness
 % will need to explain rare alleles pops and experiment some (PGRP15 grant)
-	
-
 
 
 
 \subsection*{Objective III: Estimate and compare the genetic architecture underlying traits in maize post-domestication from simulations and genomic data} 
 
-Deleterious alleles likely play a large role in many of these phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes (cite gunther2010). 
-Consistent with this hypothesis, my lab has recently shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles  compared to randomly chosen genes (cite mezmouk2014).
+With the DFE of teosinte estimated in Objective 1 and the simulated evolution of this DFE from teosinte into domesticated maize in Objective 2, we now are primed to compare the predictions of Objective 2 with real world data from modern maize. Similar to Objective 1's approach, Objective 3 will estimate the DFE of modern maize (\emph{Zea mays mays}). The expectation is that if the estimated demographic model and DFE are reasonable, the genetic architecture of simulated phenotypes should closely mimic that of real data found here. If these results are not recapitulated in the maize data, then this indicates that there are complexities in the demographic history and\//or our genomic model parameters that are not well enough understood currently. In this case, we can explore the sensitivity of genetic architecture to changes to the demography or the DFE. Understanding this sensitivity will then lead to improved estimation of these important parameters for the future.
 
+We will recapitulate the methods described in Objective 1 using genomic data from 55 sequenced individuals from a maize population as well as 2,500 individuals from the GWAS datasets\kjg{I definitely just need to chat to you more about the data Jeff, realizing I didn't take good enough notes on things}.
 
-
- rationale and significance
-
-
-
-
-
-
-
-
-
-
-\begin{comment}
-
-
-
-\subsection{Obj 3 - compare simulation results to modern maize genomes, known to have undergone the same demographies simulated in objective 2}%
-	compare to GWAS for maize/teo. do we recapitulate observations?
-		several traits are genotyped/phenotyped in maize/teosinte
-		If the estimated demographic model and DFE are reasonable, the genetic architecture of simulated phenotypes should closely mimic that of real data.
-	are there differences between central and southern American pops? \jri{we have no GWAS data for S.Amer. pops, but do have genomes and GERP. we could get freq. etc. of del. mutations from sims and compare to GERP}
-	
-	Methods: same DoFE approach in C American maize pops for direct comparison
-		in S American pops, can do comparison on subset, e.g. GERP, which we would have from Obj 1 if we compare to other approaches for the sort of validation of the DFE
-			(definitely worth doing if b/c of 2nd bottleneck more deleterious stuff rose in frequency and was then eliminated)
-
-% imp. point from Jeff's service.tex file
-	If the real data differ from simulation, we can explore the sensitivity of genetic architecture to changes to the demography or DFE; understanding this sensitivity will then lead to improved estimation of these important parameters.
-
-\end{comment}	
-	
-	
-	
-	
-	
+Need some concluding remarks and things. Currently at about 5 pages of the 6 allowed, and still have to fill in C and G, so keep length in mind!!
 	
 	
 	
@@ -169,9 +133,9 @@ UCD has the necessary computing resources for our proposed work, and as describe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{F. Milestones \& Timeline}
 \begin{tabular}{ll}
-Year 1 \hspace{0.5in} & accomplish this\\
-Year 2                     & Finish stuff  \\
-Year 3		& I don't think there is a year 3?\\
+Year 1 \hspace{0.5in} & Accomplish things \\
+Year 2                     & Finish things  \\
+Year 3		& Is there a year 3?\\
 \end{tabular}
 \kjg{want to do the DFE of maize and teosinte at the same time? no reason we can't right, and then do the simulations. Though if it takes time, teosinte should be prioritized so the sims can be parameterized and started while the maize DFE is estimated}
 
