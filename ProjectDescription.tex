@@ -28,7 +28,7 @@ The demographic history of populations or species plays a major role in the stre
 The complexity of demographic history is increased manyfold when considering the various architectures that species' genomes comprise. Many ecological traits important for local adaptation have a complex, quantitative genetic basis, and much heterogeneity has been found among these traits both within and among species (cite Orr 2001, Slate 2005). Whether this genetic architecture consists of many loci of small effect or few of large effect can therefore play a role in the impact of demography and selection, as well as mutation, on the genome. How the genome may be restructured as a result of various demographic histories and those effects on selection is not well studied. The genetic architecture underlying traits can affect how easily or quickly local adaptation may occur, or how long and difficult that process may be (cite Yeaman?). Such knowledge can therefore greatly contribute to improve breeding and conservation efforts as well as for predicting responses to environmental changes.
 
 % now into the specifics of this research proposal
-My proposed research aims to investigate these important factors (demographic history, selection, and genetic architecture) and their effects and interactions in terms of shaping the genome. I will address these questions using the maize/teosinte system. Maize (\emph{Zea mays}, ssp. \emph{mays}) is the domesticated species commonly known as corn, an annual plant. It is known to have been domesticated from its ancestor, the wild teosinte, approximately 9,000 years ago in southwestern Mexico. In particular, subspecies \emph{Zea mays parviglumis} is the direct progenitor of maize. While two other subspecies of wild teosinte, \emph{mexicana} and \emph{huehuetenangensis}, exist and are found at higher elevations on the Mexican Central Plateau and in western Guatemala, respectively (cite Hufford 2012). Maize and teosinte are extensively studied and serve as ideal models for this research. Demographic history of the species is well documented: supported by both archaeological and other human records of its use and domestication in the Americas (cite). Extensive genetic and genomic data is also available, allowing the known demographic history of the species to be assessed in terms of genomic signatures of domestication (cite?), as well as specifically parameterized in terms of important values such as effective population sizes (cite Beissinger in prep). This provides a unique opportunity to compare these closely related subspecies which have undergone various different demographic processes contributing to their present-day genetic make-up.
+My proposed research aims to investigate these important factors (demographic history, selection, and genetic architecture) and their effects and interactions in terms of shaping the genome. I will address these questions using the maize/teosinte system. Maize (\emph{Zea mays}, ssp. \emph{mays}) is the domesticated species commonly known as corn, an annual plant. It is known to have been domesticated from its ancestor, the wild teosinte, approximately 9,000 years ago in southwestern Mexico (cite Matsuoka et al 2002). In particular, subspecies \emph{Zea mays parviglumis} is the direct progenitor of maize. While two other subspecies of wild teosinte, \emph{mexicana} and \emph{huehuetenangensis}, exist and are found at higher elevations on the Mexican Central Plateau and in western Guatemala, respectively (cite Hufford 2012). Maize and teosinte are extensively studied and serve as ideal models for this research. Demographic history of the species is well documented: supported by both archaeological and other human records of its use and domestication in the Americas (cite). Extensive genetic and genomic data is also available, allowing the known demographic history of the species to be assessed in terms of genomic signatures of domestication (cite?), as well as specifically parameterized in terms of important values such as effective population sizes (cite Beissinger in prep). This provides a unique opportunity to compare these closely related subspecies which have undergone various different demographic processes contributing to their present-day genetic make-up.
 
 In this research project I propose three objectives which make use of the extensive knowledge and data available in the maize\//teosinte system in order to answer the question of \textbf{how the genetic architecture of traits changes as a result of demography and selection}. Objective one uses existing genomic data in teosinte to characterize the genetic architecture of phenotypically important traits. Using the results of this study for parameterizing key genomic characteristics, objective two then simulates the demographic history of teosinte's domestication into modern-day maize. Objective three then characterizes the genetic architecture of the same traits using genomic data from modern maize and compares to theoretical expectations of the genetic architecture of these traits based on the results produced from objective two's simulations. This research will further our understanding of demography and selection's impact on the genome and its architecture, as well as our ability to detect and predict changes in genetic architecture after certain demographic events.
 
@@ -58,17 +58,25 @@ Additionally, it will be possible to validate some of the performance of DoFE on
 	
 
 \subsection*{Objective II: Simulate the demographic history of maize domestication from teosinte}
-Maize was domesticated in...
 
+This portion of the proposed project aims to use the DFE results of Objective 1 to parameterize a model that will simulate the evolution of maize and its genetic architecture through time during and since its domestication.
+% known demog history of maize
+Maize originated approximately 9,000 years ago in southern Mexico (cite Matsuoka et al 2002, others?) during a single domestication event of \emph{ssp. parviglumis}. Archaeological records also confirm this dating and single location (cite) as well as the subsequent spread and growth in population size of domestic landraces across the Americas into both lowland and highland environments [cite Wilkes, H. G. (1967) Teosinte: The Closest Relative of Maize (Harvard Univ., Cambridge, MA)]. South American landraces of maize also underwent a second bottleneck event during their expansion (cite). Using genetic data, the precise demographic parameters of this history have been estimated (cite Beissinger et al in prep). This provides information on the ancestral effective population size of maize ($N_a \approx$ 120,000), the size to which the population was bottlenecked during domestication (5\% of this $N_a$), the subsequent size to which populations rapidly expanded (3 times as large as $N_a$\kjg{but maybe as much as 1E9, citation}), and lastly on the genome-wide mutation rate ($3.8\times10^-8$ cite Clark et al 2005 MBE 22, 2304 -- 2312.)
 
+% simulate it with fwdpy
+The information described above can be used to parameterize simulations of maize genomes undergoing this same demographic history. The DFE of teosinte established from objective 1 provides the necessary parameters for the number of loci and their various effect sizes to be modeled as contributing to each phenotypic trait of interest. Population sizes can be matched to those known during the domestication process, enforcing the desired demographic history, and mutations can be induced at the inferred rates to create simulations as accurate to reality as possible. \kjg{have/need info on recombination/linkage?} The forward simulation program fwdpy (a Python implementation of fwdpp, cite) provides the framework for performing these simulations of complex demographies with natural selection. This approach allows explicit modeling of the genomic architecture desired: distribution of effect sizes across the desired number of loci, including deleterious mutations and their effects on the phenotype. Recombination parameters, as well as setting population sizes, and even sampling from simulated populations is possible.
 
+I will simulate the various landraces of maize which each have a different demographic history during their spread across Central and South America into both lowland and highland environments.\kjg{I think this could be interesting, even if we can't compare them all in the end to real data since we only have it for some - unless it might be in the scope of this project to try and generate some of that data} I can then compare the different genetic architectures that evolve from these various conditions. From the simulation results, I will evaluate how many loci are found to contribute to phenotypically important traits (on average and how variable this number is), how strong the mutational effects are at each locus and if and how this relates to the number of loci contributing. This will allow assessment of how important the details of demography are in determining the genetic architecture of local adaptation to different (lowland vs. highland) or similar (lowland Mexico vs. lowland S. America) conditions.\kjg{does this make any sense/is it a valid comparison?}
 
-Small population sizes can lead to purging (recessives become homozygous and removed in smaller pops), but also increase in deleterious alleles (surfing phenomenon due to random genetic drift).
-mutations that affect a trait related to fitness will then be impacted by demography x selection interaction.
-in annual plants, nearly ALL traits related to fitness
-we thus predict that genetic architecture (number and size of mutations) should be impacted by demographic change.
-this is not understood well in any system. controversial in humans (lohmueller vs. pritchard etc.). in plants, summaries are on gross overall $N_e$ (small vs. big) and ignore recent demographic change.
+\kjg{goes in intellectual merit section?}
+Objective 2 will inform whether the DFE changes under certain demographies, and if so whether there is any meaningful direction in this change. We may hypothesize changes to a wider or narrower or more skewed distribution of fitness effects depending on the demography at hand. Population bottlenecks are a common demographic occurrence during the geographic spread of populations (cite) which will be included in our simulations. Such bottlenecks reduce population sizes greatly, and this reduction can have several effects on the genome including purging of deleterious alleles (recessive alleles become homozygous and are more efficiently removed), or alternatively may lead to an increase of some deleterious alleles through increased random genetic drift (allele surfing, cite Klopfstein et al 2006). The effects of these processes varies depending on the degree of population size reduction and the length of time over which populations are bottlenecked (cite bottleneck lit). The second bottleneck of S. American populations may thus result in a difference between landraces in terms of genetic architecture of adaptive traits. 
 
+These hypothesized changes in the DFE are not well understood in any system and are controversial in humans (cite lohmueller vs. pritchard etc.). Deleterious alleles likely play a large role in many adaptive phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes (cite gunther2010). Consistent with this, it has recently been shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles compared to randomly chosen genes (cite mezmouk2014). Such information is crucial for understanding variation in phenotype, designing breeding strategies, utilizing diversity from wild relatives, or even engineering new traits using biotechnology. 
+
+% use the same traits from obj. 1, need to describe them there more?
+% because then in this section, want to simulate traits w/ varying correlation with fitness
+% will need to explain rare alleles pops and experiment some (PGRP15 grant)
+	
 
 
 
@@ -94,52 +102,6 @@ Consistent with this hypothesis, my lab has recently shown that genes associated
 \begin{comment}
 
 
-Deleterious alleles likely play a large role in many of these phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes (cite gunther2010). 
-Consistent with this hypothesis, my lab has recently shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles  compared to randomly chosen genes (cite mezmouk2014).
-However, while we know that demography impacts the frequency of individual deleterious variants, we have a poor understanding of the interaction of demography and selection on phenotypic variation. 
-In particular, we know little about how these two forces interact to determine the genetic architecture -- the number of genes and their effect -- of a trait. 
-Such information is crucial for understanding variation in phenotype, designing breeding strategies, utilizing diversity from wild relatives, or even engineering new traits using biotechnology. 
-
-	
-
-Maize was domesticated $\approx$9000 years ago in SW Mexico which bottlenecked populations to a small size, but was subsequently followed by a large population expansion more recently. This demographic event can be detected genetically, as shown by Beissinger in prep (github repo), where populations were bottlenecked to 5\% of their previous size followed by spread across central and southern America and into highland and lowland environments. Populations of maize have since recovered to much larger effective population sizes than even before the domestication bottleneck (humongous growth to at least 300K but maybe as much as 1E9, citation).
-
-Being a crop species that is incredibly useful to humans (lots of citations and examples of usage), there is also a wealth of knowledge on quantitative traits. 
-will need to explain rare alleles pops and experiment some (PGRP15 grant)
-%using genomic data from both maize and teosinte across their species' ranges, we can compare
-%	classes of functional diversity, using e.g. GERP scores, across pops of different demographic history
-%	look at the distribution of these as well as in beneficial traits if possible
-%can compare these results to simulations parameterized to match known demog. of teosinte/maize
-
-This system thus serves as a great resource to compare the effects of this history on the genome in maize versus its extant, wild ancestor teosinte, particularly to investigate how the genetic architecture of these important traits may have evolved differently as a result of this combination of demography and selection.
-
-
-
-\subsection{Obj 2 - Simulate scenarios of different traits.}
-	
-	from objective 1 we now know the DFE of teosinte
-	we already know the demographic history of maize since its split from teosinte (citations)
-	
-	use the DFE results to parameterize a model that will simulate the evolution of maize and its genetic architecture through time during and since its domestication
-	we can simulate maize that expanded into S America separately since it has a different demography and then compare any differences the regions may show in the end
-		simulate traits w/ varying correlation with fitness
-		new mutation effects on fitness determined by DFE, effect on trait by correlation between trait and fitness
-	
-	Methods: fwdpy (python version of fwdpop, cite \url{http://www.genetics.org/content/198/1/157.abstract}), allows simultaneous generation of complex demography, natural selection, and quantitative phenotypes, including deleterious mutations and their effect on phenotype
-	
-	evaluate:
-		how many loci contribute to important traits?
-		how strong are these effects?
-		how do details of demography impact outcome?
-		test against theory e.g \url{http://arxiv.org/abs/1312.3028}
-	
-	standing questions:
-		does the DFE significantly change in a meaningful way or a certain direction?
-			mean value the same but narrower or wider distribution?
-			skewed more one way or the other?
-		might expect this to be a different answer for maize in S America vs Central since S America has had a second bottleneck, so more founder effects and more chance for drift
-	
-	(could also do some broader simulated examples just to stand alone and see if other various outcomes may occur - just don't plan on comparing these to any real data)\jri{yes, once we can show we can recapitulate real data, i think this is useful}
 
 \subsection{Obj 3 - compare simulation results to modern maize genomes, known to have undergone the same demographies simulated in objective 2}%
 	compare to GWAS for maize/teo. do we recapitulate observations?
