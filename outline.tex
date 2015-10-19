@@ -85,6 +85,85 @@ will need to explain rare alleles pops and experiment some (PGRP15 grant)
 This system thus serves as a great resource to compare the effects of this history on the genome in maize versus its extant, wild ancestor teosinte, particularly to investigate how the genetic architecture of these important traits may have evolved differently as a result of this combination of demography and selection.
 
 
+
+
+\section*{Research Objectives}
+
+\begin{enumerate}
+
+\item estimate DFE, test in\//against teosinte:
+
+	\begin{enumerate}
+	
+	\item DFE estimation via DoFE
+	\item want the distribution of effect sizes - is that attained the same way as above?
+	\item simulate for variety of parameters: Vg, Vd, etc.
+	\item test against observed traits in teosinte: compare effect size distribution, do GWAS on the simulated data and see if matches the real data
+	\item data = 70 teosinte inds, could mention other pre-existing datasets
+
+	\end{enumerate}
+
+\item simulate maize domestication:
+
+	\begin{enumerate}
+	
+	\item use fwdpy
+	\item fit the distribution of effect sizes from (1) using an ABC approach within fwdpy
+	\item gives posterior dist. of most likely params
+	\item sample from this to do the maize simulations
+	\item maize sims will have the domestication bottleneck on all traits, then some traits known to be under seln will additionally have positive seln imposed on them
+% add domestication bottleneck, variety of selection regimes for different Vg, etc.
+	\item how\//do traits with high heritability change
+	\item compare to actual traits in maize as a validation
+	\item can do this validation using the (?)NIL lines that are mixes of teosinte and maize segregating in the same pop
+	\item test in population with both teosinte and maize alleles so effect sizes are comparable?
+
+	\end{enumerate}
+
+\item simulate additional populations of domestic maize that have various demographies to see those impacts:
+
+	\begin{enumerate}
+
+	\item impose the different demographies from what is known to have occurred as maize expanded from Mexico
+	\item further expansions, bottlenecks...
+	\item these will come from the same starting point data as the start of objective 2?
+	\item but with the diff. demogs and seln regimes, will then compare how the distribution of effect sizes has changed
+	\item makes predictions about how we expect varying demog and seln to have an impact on gen .architecture.
+	\item only if have real data can use the Qx approach from Berg and Coop? to validate?
+
+	\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Old Objectives below}
 \subsection{Obj 1 - Estimate the Distribution of Fitness Effects (DFE)}
 
 	using teosinte genomes \kjg{note to self, update the data description}\\
