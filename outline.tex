@@ -96,10 +96,11 @@ This system thus serves as a great resource to compare the effects of this histo
 	\begin{enumerate}
 	
 	\item DFE estimation via DoFE
-	\item want the distribution of effect sizes - is that attained the same way as above?
-	\item simulate for variety of parameters: Vg, Vd, etc.
+	\item translate DFE into the distribution of effect sizes
+	\item simulate equilibrium scenarios in fwdpy for variety of parameters: Vg, Vd, etc.
 	\item test against observed traits in teosinte: compare effect size distribution, do GWAS on the simulated data and see if matches the real data
-	\item data = 70 teosinte inds, could mention other pre-existing datasets
+	\item if the sims don't match the teosinte data, tweak params until do
+	\item data = 5000 individuals from crosses of 70 teosinte inds - genotyped and phenotyped for 16 traits
 
 	\end{enumerate}
 
@@ -109,14 +110,16 @@ This system thus serves as a great resource to compare the effects of this histo
 	
 	\item use fwdpy
 	\item fit the distribution of effect sizes from (1) using an ABC approach within fwdpy
-	\item gives posterior dist. of most likely params
-	\item sample from this to do the maize simulations
+	\item gives posterior dist. of most likely params - Vg, Vd, Va ...
+	\item sample from these posteriors to parameterize and run the maize simulations
 	\item maize sims will have the domestication bottleneck on all traits, then some traits known to be under seln will additionally have positive seln imposed on them
 % add domestication bottleneck, variety of selection regimes for different Vg, etc.
-	\item how\//do traits with high heritability change
+	\item ask how\//do traits with high heritability change
 	\item compare to actual traits in maize as a validation
-	\item can do this validation using the synthetic Zea lines that are mixes of teosinte and maize segregating in the same pop \small{(Zea synthetic is the teosinte synthetic further mixed with 26 maize lines, and is ~12\% teosinte (from 11 different founders), 40\% B73 (the reference genome line), and ~2\% each of 25 other maize inbred lines.  All founders have been completely sequenced.)}
-	\item test in population with both teosinte and maize alleles so effect sizes are comparable?
+	\item if there is a difference, then we can attribute this to seln params being different and can estimate seln w/ ABC on maize
+	\item some traits we expect to be under seln and others not so can see if our results in terms of which traits under seln match expectations too, and if not, then something wonky with the sims
+	\item if our sims and earlier estimations were correct, we should be able to recover the repective distributions of fitness effects in maize and teosinte when looking in the pops of mixed background inds: 
+	\item \small{(Zea synthetic is the teosinte synthetic further mixed with 26 maize lines, and is ~12\% teosinte (from 11 different founders), 40\% B73 (the reference genome line), and ~2\% each of 25 other maize inbred lines.  All founders have been completely sequenced.)}
 
 	\end{enumerate}
 
@@ -125,11 +128,11 @@ This system thus serves as a great resource to compare the effects of this histo
 	\begin{enumerate}
 
 	\item impose the different demographies from what is known to have occurred as maize expanded from Mexico
-	\item further expansions, bottlenecks...
-	\item these will come from the same starting point data as the start of objective 2?
+	\item not all the demogs are known for all pops, Takuno just highland S Amer? so may need to estimate others, or could propose just imposing a variety of demogs
+	\item further expansions, bottlenecks..., migration into SW US
+	\item these will come from the same starting point data as the start of objective 2, i.e. start the maize domestication and send it under a different trajectory (but all would still include the first C Mexico bottleneck)
 	\item but with the diff. demogs and seln regimes, will then compare how the distribution of effect sizes has changed
 	\item makes predictions about how we expect varying demog and seln to have an impact on gen .architecture.
-	\item only if have real data can use the Qx approach from Berg and Coop? to validate?
 
 	\end{enumerate}
 
