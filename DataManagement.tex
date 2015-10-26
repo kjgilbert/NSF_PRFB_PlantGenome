@@ -49,9 +49,31 @@
 
 \subsection*{Data Types} 
 
-This proposal will generate genotype and full-genome sequence data, phenotype data, analytical code, germplasm, and publications.
+This proposal will make use of existing maize and teosinte datasets from multiple sources and only generate simulated datasets.
+These real-world maize and teosinte datasets are used within objectives one and two of the proposal, while simulated data is produced within objective two, but mainly in objective three.
+
+\paragraph{Sequence and Genotype Data}
+The population of 70 sequenced teosinte individuals at 25X coverage and 5,000 genotyped progeny are provided from \kjg{need to get details and fill in}
+The population of 50 sequenced maize individuals at 25X coverage and 5,000 genotyped progeny are provided from \kjg{need to get details and fill in}
+Existing data is also available publicly for ?1500 maize genomes through the HapMap 3 and 4 projects \kjg{cite Panzea?}
+The synthetic \emph{Zea} line used for validation in objective II is available from  \kjg{Cite accepted Plant Gen paper from Sherry}
+
+\paragraph{Phenotype Data}
+Phenotypic data for these populations exists from the same sources in all cases. \kjg{not sure if this is true, check that out}
+
+\paragraph{Simulated Data}
+Outputs from simulations will consist of sequence data of genomic regions representing important phenotypic traits. This data will be organized to describe how users can interpret the data in terms of what phenotype each region represents and what file corresponds to each demographic and selective scenario simulated. All of this information will be contained in Readme files associated with each directory of simulated datasets.
+
+
+\subsection*{General Organization}
+All obtained and generated datasets will be stored locally and remotely on UC Davis's online Google Drive\kjg{better way to describe this?}. In the rare event of simultaneous failure of these storage facilities, maize and teosinte datasets can be re-obtained from original authors and simulated datasets can be re-generated from the same random seed to produce identical results. In addition to data, analysis and simulation scripts will be stored locally and remotely on my GitHub account. I will additionally use GitHub to version control all scripts so that previous versions are not deleted nor is confusion of the proper published version a problem. Using version control and GitHub are already protocols I follow currently and will provide no future difficulty in maintaining this workflow. Readme files can be generated for each set of analysis or simulation scripts that serve as a sort of metadata for reproducing the analyses within and instructions for future users to understand how each script is run.
 
 \subsection*{Data Archiving, Plan for Sharing, Public Access Policy}
 
-\paragraph{Genotype and Sequence Data} 
-EDIT THIS WHOLE DOCUMENT
+The existing maize and teosinte datasets are all either currently publicly available or will be made publicly available before the completion of this research.
+
+Simulated data will be publicly archived concurrently with publication of the research results. These datasets will be archived on Dryad Digital Repository, unless otherwise directed to another appropriate, publicly accessible data archive by the publication journal. Detailed metadata will be provided to ensure reproducibility of the studies. The scripts used to generate these data files and conduct analyses will be made available with detailed instructions on my GitHub account. I will post links to all data sources on my academic website, which is a standard I already maintain. 
+
+Since all data is either simulated or comes from existing plant datasets, there will be no privacy concerns for sharing data.
+
+
