@@ -49,21 +49,23 @@ I propose three objectives which make use of the extensive knowledge and data av
 \section*{B. Research Objectives, Methods \& Significance}
 \subsection*{Objective I: Model the genetic architecture of phenotypes in teosinte}
 
-This first objective aims to build a model to simulate the genetic architecture of phenotypes in teosinte (\emph{Zea mays} ssp. \emph{parviglumis}).  Such a model will then enable us to study how demography and selection during domestication (Objective II) and range expansion (Objective IV) have impacted the genetic basis of phenotypic traits.
+This first objective aims to build a model to simulate the genetic architecture of phenotypes in teosinte (\emph{Zea mays} ssp. \emph{parviglumis}).  Such a model will then enable us to study the impacts of demography and selection during domestication (Objective II) and range expansion (Objective IV) on the genetic basis of phenotypic traits.
 
-In order to model the architecture of quantitative traits, we first need to understand the effects of mutation.  The distribution of fitness effects (DFE) describes the consequences of mutations in terms of their impacts on an organism's fitness. 
-%DELETED:Mutations can broadly be classified as beneficial, deleterious, or neutral, but in actuality, mutation effect sizes span a continuum of strongly deleterious to strongly beneficial, with any value in between. %good stuff, but probably not needed
-
-Taking advantage of published \citep{Chia:2012} and new (see Data section below) whole-genome sequencing data in teosinte, we will estimate the DFE in teosinte with the software DoFE \citep{Keightley:2007hq, Stoletzki:2011} using estimates of the number of nonsynonymous and synonymous substitutions in genes.
+In order to model the architecture of quantitative traits, we first need to understand the effects of mutation.  The distribution of fitness effects (DFE) describes the consequences of mutations in terms of their impacts on an organism's fitness. Taking advantage of published \citep{Chia:2012} and new whole-genome sequencing data in teosinte (see Data section below), we will estimate the DFE in teosinte with the software DoFE \citep{Keightley:2007hq, Stoletzki:2011}, using estimates of the number of nonsynonymous and synonymous substitutions in genes.
 The resulting estimates of the fitness effects of new mutations can then be parameterized in terms of their effect on a fitness-related quantitative trait  \citep{Keightley:1988, eyre-walker:2010} such as yield, plant height, or flowering time.
+
+%DELETED:Mutations can broadly be classified as beneficial, deleterious, or neutral, but in actuality, mutation effect sizes span a continuum of strongly deleterious to strongly beneficial, with any value in between. %good stuff, but probably not needed
 
 %DELETED:Estimate of the DFE and effect size of new mutations will then be used 
 %s well as new seqI will apply this method to sequence data from regions of the genome known to underly important phenotypic traits. Some such quantitative phenotypes include yield, plant height, and flowering time, which are of critical importance to agriculture (cite). From this distribution of fitness effects and fitness measures from these traits, we can then translate these values into effect sizes per allele.\kjg{eek, not sure I'm describing this well} I will use genotypic and phenotypic data on teosinte which is available for 5,000 individuals at 16 phenotypic traits (height, kernel traits...\kjg{do you think I should list them all here?}) (cite data source). These individuals are the progeny of 70 teosinte individuals sequenced to 25X coverage, providing an ideal resource for this analysis.
 
-The estimated DFE, combined with prior information on mutation \jri{cite clark 2005 MBE} and recombination rates \jri{cite rodgers-melnick 2015 10.1073/pnas.1413864112}  will then be used as input in simulation models of quantitative trait evolution.  Additional parameters necessary for our model (including dominance and the correlation between a trait and fitness\jri{kevin: other params?}) will be estimated using using an Approximate Bayesian computation approach \jri{cite beaumont 2002}: simulation parameters will be drawn from a prior distribution, and results compared to observed data to estimate the parameters' posterior distributions.  We will take advantage of the library fwdpy (a Python implementation of fwdpp \citealt{Thornton:2014kn} available at \jri{cite github}) to write simulation code that explicitly models a quantitative trait evolving under a model of stabilizing selection. From each simulation, we will then perform genome-wide-association analysis in order to compare with observed data from published (\jri{cite Weber}) and on-going (see Data below) analysis of 16 phenotypic traits in a natural population of teosinte. The ABC approach should allow robust estimation of the necessary parameters from a set of several million such simulations.\jri{do we need more detail on fwdpy? size of region etc? you had this and i commented out.} 
+The estimated DFE, combined with prior information on mutation \citep{Clark:2005} and recombination rates \citep{Rodgers-Melnick:2014}  will then be used as input in simulation models of quantitative trait evolution.  Additional parameters necessary for our model (including dominance and the correlation between a trait and fitness\jri{kevin: other params?}) will be estimated using using an Approximate Bayesian computation approach \citep{Beaumont:2002ue}: simulation parameters will be drawn from a prior distribution, and results compared to observed data to estimate the parameters' posterior distributions.  We will take advantage of the library fwdpy (a Python implementation of fwdpp \citealt{Thornton:2014kn} available at \jri{cite github}\kjg{with the url?  \url{https://github.com/molpopgen/fwdpy}}) to write simulation code that explicitly models a quantitative trait evolving under a model of stabilizing selection. From each simulation, we will then perform genome-wide-association analysis in order to compare with observed data from published (\jri{cite Weber}) and on-going (see Data below) analysis of 16 phenotypic traits in a natural population of teosinte. The ABC approach should allow robust estimation of the necessary parameters from a set of several million such simulations.\jri{do we need more detail on fwdpy? size of region etc? you had this and i commented out.}\kjg{happy to leave out for space-saving, NSF doesn't need this level of detail, right?}
 
-\jri{need final paragraph here, see latex for comments} 
-%NEED new paragraph on 1) why having the DFE (which is just distribution of s, not genetic architecture itself) is cool. see eyre-walker NatRevGen 2007. 2) the fact that a model like this currently doesn't exist! no plug-and-play software, very limited theory. so just finishing objective 1 will be awesome!
+Obtaining the DFE for teosinte provides a distribution of effect sizes for loci across the genome, information that is not widely available in many systems. Actual estimates of this distribution contribute to future studies aiming to realistically simulate any distribution of mutation effects by further describing the variability of this distribution across species, and such information adds to an important bodies of work such as understanding the genetic basis of complex diseases, among others \citep{EyreWalker:2007dl}. 
+
+%\jri{need final paragraph here, see latex for comments} 
+%NEED new paragraph on 1) why having the DFE (which is just distribution of s, not genetic architecture itself) is cool. see eyre-walker NatRevGen 2007. 
+%	2) the fact that a model like this currently doesn't exist! no plug-and-play software, very limited theory. so just finishing objective 1 will be awesome!
 
 %DELETED:the genomic architecture desired: distribution of effect sizes across the desired number of loci, including deleterious mutations and their effects on the phenotype. Values of $V_G$, $V_A$, and $V_D$ can be run to equilibrium, and then the populations sampled in order to test for successful replication of a wild teosinte population.
 
@@ -72,41 +74,7 @@ The estimated DFE, combined with prior information on mutation \jri{cite clark 2
 	
 	
 
-%_________________% DATA INFORMATION %_________________%
 
-%%%RARE ALLELES PROJECT (probably the most useful data)
-% 1 pop of teo w/ 70 parents (sequenced), 5000 progeny (16 phenotypes, GBS, imputation in progress)
-% 1 pop of landrace maize w/ 55 parents (sequencing in progress), 5000 progeny (~25 (?) phenotypes, GBS, imputation in progress)
-% 4 additional teo pops,  each with 10 parents (sequencing in progress) and 1200 progeny (GBS done, phenotyping in progress done in Jan 2017)
-% 4 additional landrace maize pops,  each with 10 parents (sequencing in progress) and 1200 progeny (GBS done, phenotyping in progress done in Jan 2017)
-
-%%OTHER DATA OF USE
-% for teosinte architecture
-% Weber 2009 teosinte population (if DNAs still available; may be too small sample size pop) 
-
-%for architecture of traits in maize
-
-% NAM!! 5000 RILs, GBS, 42 phenotypes    26 parents crossed to an additional line, 15 million snps
-
-
-%(suboptimal) alternative DFE, diversity data
-% ~1500 sequnced maize genomes (Hapmap 3 and 4) 
-
-%for comparison of maize and teo architecture
-% teosinte synthetic: ~2500 DH lines, ~12% teosinte, 40% B73, 2% of each other 25 NAM parents there is dna and tissue
-% Briggs 2007 mapping population (600 BC2S3 to estimate ), maybe genotyped on ~1500 markers
-% Sherry parviglumis NILs (~800??) there are seeds
-
-% for looking at other landraces
-% ~6 landrace genomes each from highland mexico, lowland mexico, highland S. america, lowland s. america, highland guatemala, US southwest
-% SeeDs: 
-	% 4,000 landraces each w/ 1M SNPs and several phenos (publicly available)
-	% 25,000 landraces, each w/ pooled seq. of ~30 plants. + some phenos (not yet avaible, but we know the woman in charge of the program)
-	
-% other goodies
-% 0.2cM-scale recombination map
-% rho-map (starting Feb. 2016)
-%___________________________________________________%	
 	
 \subsection*{Objective II: Model quantitative genetics of maize domestication}
 
@@ -143,7 +111,7 @@ Furthermore, a validation of the distributions of fitness effects in maize and t
 
 %Maize originated approximately 9,000 years ago in southern Mexico (cite Matsuoka et al 2002, others?) during a single domestication event of \emph{ssp. parviglumis}. Archaeological records also confirm this dating and single location (cite) as well as the subsequent spread and growth in population size of domestic landraces across the Americas into both lowland and highland environments [cite Wilkes, H. G. (1967) Teosinte: The Closest Relative of Maize (Harvard Univ., Cambridge, MA)]. South American landraces of maize also underwent a second bottleneck event during their expansion (cite). Using genetic data, the precise demographic parameters of this history have been estimated (cite Beissinger et al in prep). This provides information on the ancestral effective population size of maize ($N_a \approx$ 120,000), the size to which the population was bottlenecked during domestication (5\% of this $N_a$), the subsequent size to which populations rapidly expanded (3 times as large as $N_a$\kjg{but maybe as much as 1E9, citation}), and lastly on the genome-wide mutation rate ($3.8\times10^-8$ cite Clark et al 2005 MBE 22, 2304 -- 2312.)
 
-
+\jri{do we want to include the SeeDs phenotype/genotype data?}
 Since domestication, various landraces of maize have spread across Central and South America and adapted into different lowland and highland habitats.\kjg{worth a figure? am short on space already} These populations have experienced further demographic and selective pressures in addition to the initial domestication bottleneck. South American populations are inferred to have experienced a second severe bottleneck (cite), populations expanding geographically are likely to have experienced serial founder effects that can change allele frequencies in unexpected ways due to allele surfing \citep{Klopfstein:2005bl}, and gene flow between teosinte and maize populations may have continued in some cases. Selection pressures in different lowland and highland habitats may also interact with these demographic events.
 
 The objective of this project is to simulate the impact of multiple demographic events and selective pressures either individually or in combination. This will show how much variation is possible in terms of the effects on genetic architecture underlying traits for adaptation. The core set of simulations in this project will be designed to match the known landraces in maize, but will include more broadly a designed experiment to compare the presence or absence of particular evolutionary forces. Though there is currently not sufficient genomic and phenotypic data for all landrace populations of maize, it is likely that this will exist in the future, leaving an excellent future comparison to be made in terms of how well these simulation results match real populations across the species range. The goal of this project is to inform our understanding of the relative importance or insignificance of the tested demographic cases and how sensitive genetic architecture is to these. There is a debate currently in the field of evolutionary biology and human demographic history about the impact of events such as range expansions on the genome and the frequency of deleterious alleles \citep{Henn:2015ce, Sudmant:2015}, necessitating further understanding of how such factors might interact under various selective environments. Furthermore, deleterious alleles likely play a large role in many adaptive phenotypes: crop plants have undergone dramatic demographic shifts, usually involving a domestication bottleneck followed by expansion as cultivation spread, and some authors even argue that selection on domestication traits has inadvertently increased the frequency of alleles deleterious for other phenotypes \citep{Gunther:2010}. Consistent with this, it has recently been shown that genes associated with a number of quantitative traits in maize are enriched for deleterious alleles compared to randomly chosen genes \citep{Mezmouk:2014jd}. Such information is crucial for understanding variation in phenotype, designing breeding strategies, utilizing diversity from wild relatives, or even engineering new traits using biotechnology. 
@@ -153,7 +121,42 @@ Similar to objective two, I will simulate regions of the genome within individua
 \subsection*{Data}
 This project will make use of both published data as well as data generated or currently being generated as part of a related Plant Genome project (Biology of Rare Alleles IOS-1238014) of which sponsoring scientist Dr. Ross-Ibarra is a Co-PI. As part of this project, Dr. Ross-Ibarra's group is currently in the process of sequencing 70 teosinte and 55 maize genomes to high depth. These genome sequences should be finished by the end of 2015 and will be made publicly available early 2016 via the group website (\url{www.panzea.org}). The individuals used for genome sequencing are also the parents of two large mapping populations of $\approx 5000$ progeny. Both populations have been genotyped and phenotyped for a number of traits including seed yield, flowering times, and plant height.  These data are currently available via collaborators.  Publication of results from analyses of these data must await publication of collaborators' GWAS analyses, but but as these currently underway and comparisons of simulations in Objectives I and II would not begin until early 2017 at the soonest we do not foresee this being an issue. \jri{jri todo: add mention of zea synthetic}
 
-Objective IV of this project... \jri{do we want to include the SeeDs phenotype/genotype data?}
+%_________________% DATA INFORMATION %_________________%
+
+%%%RARE ALLELES PROJECT (probably the most useful data)
+% 1 pop of teo w/ 70 parents (sequenced), 5000 progeny (16 phenotypes, GBS, imputation in progress)
+% 1 pop of landrace maize w/ 55 parents (sequencing in progress), 5000 progeny (~25 (?) phenotypes, GBS, imputation in progress)
+% 4 additional teo pops,  each with 10 parents (sequencing in progress) and 1200 progeny (GBS done, phenotyping in progress done in Jan 2017)
+% 4 additional landrace maize pops,  each with 10 parents (sequencing in progress) and 1200 progeny (GBS done, phenotyping in progress done in Jan 2017)
+
+%%OTHER DATA OF USE
+% for teosinte architecture
+% Weber 2009 teosinte population (if DNAs still available; may be too small sample size pop) 
+
+%for architecture of traits in maize
+
+% NAM!! 5000 RILs, GBS, 42 phenotypes    26 parents crossed to an additional line, 15 million snps
+
+
+%(suboptimal) alternative DFE, diversity data
+% ~1500 sequnced maize genomes (Hapmap 3 and 4) 
+
+%for comparison of maize and teo architecture
+% teosinte synthetic: ~2500 DH lines, ~12% teosinte, 40% B73, 2% of each other 25 NAM parents there is dna and tissue
+% Briggs 2007 mapping population (600 BC2S3 to estimate ), maybe genotyped on ~1500 markers
+% Sherry parviglumis NILs (~800??) there are seeds
+
+% for looking at other landraces
+% ~6 landrace genomes each from highland mexico, lowland mexico, highland S. america, lowland s. america, highland guatemala, US southwest
+% SeeDs: 
+	% 4,000 landraces each w/ 1M SNPs and several phenos (publicly available)
+	% 25,000 landraces, each w/ pooled seq. of ~30 plants. + some phenos (not yet avaible, but we know the woman in charge of the program)
+	
+% other goodies
+% 0.2cM-scale recombination map
+% rho-map (starting Feb. 2016)
+%___________________________________________________%	
+
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TRAINING OBJECTIVES
