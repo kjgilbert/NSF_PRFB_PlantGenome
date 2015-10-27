@@ -50,8 +50,8 @@ This first objective aims to build a model to simulate the genetic architecture 
 
 In order to model the architecture of quantitative traits, we first need to understand the effects of mutation.  The distribution of fitness effects (DFE) describes the consequences of mutations in terms of their impacts on an organism's fitness. 
 %DELETED:Mutations can broadly be classified as beneficial, deleterious, or neutral, but in actuality, mutation effect sizes span a continuum of strongly deleterious to strongly beneficial, with any value in between. %good stuff, but probably not needed
-Taking advantage of published  \jri{cite Chia et al. nat gen 2012} and new (see Data section below) whole-genome sequencing data in teosinte, we will estimate the DFE in teosinte with the software DoFE \citep{Keightley:2007hq} using estimates of the number of nonsynonymous and synonymous substitutions in genes.
-%\kjg{also: Fay, Wycoff and Wu (2001), Smith and Eyre-Walker (2002), Bierne and Eyre-Walker (2004) and Eyre-Walker and Keightley (2009), Stoletzki and Eyre-Walker (2011)}
+
+Taking advantage of published \citep{Chia:2012} and new (see Data section below) whole-genome sequencing data in teosinte, we will estimate the DFE in teosinte with the software DoFE \citep{Keightley:2007hq, Stoletzki:2011} using estimates of the number of nonsynonymous and synonymous substitutions in genes.
 The resulting estimates of the fitness effects of new mutations can then be parameterized in terms of their effect on a fitness-related quantitative trait  \citep{Keightley:1988, eyre-walker:2010} such as yield, plant height, or flowering time.
 
 %DELETED:Estimate of the DFE and effect size of new mutations will then be used 
@@ -119,6 +119,13 @@ More heritable traits or traits under stronger positive selection may change in 
 %The distribution of effect sizes established in objective one are used now to simulate the domestication of maize from teosinte. 
 %Again using fwdpy, I will simulate the demographic and selective events that occurred during the domestication of maize. A first step to fit the distribution of effect sizes from objective one will use approximate Bayesian computation (ABC) within fwdpy to estimate the most likely distribution of parameters for $V_G$ and $V_A$.\kjg{did I describe this right?} Simulations will follow the genetic architecture of the aforementioned quantitative traits and their accurate genetic architectures through a strong bottleneck of 5\% of its ancestral $N_e$. Regions of the genome in sizes of 100kb can be simulated with assigned fitness values. Population sizes are easily controlled within fwdpy to mirror the ancestral $N_e$ of maize to its estimated size of $\sim$120,000 followed by the domestication bottleneck which was subsequently followed by a large, rapid growth in population size that expanded populations to at least three times as large as the ancestral $N_e$ (cite). 
 
+
+\begin{SCfigure}
+\centering
+   \includegraphics[width=0.5\textwidth]{Figure2_Brownetal2011.png}
+  \caption{Effect sizes from GWAS analyses in maize, grouped by trait category. Inset shows the largest effects. Ear traits, showing the largest effect sizes, were likely selected during maize domestication while the others were not. Figure from \citealt{Brown:2011}.}
+  \label{fig:model}
+\end{SCfigure}
 
 %Having reiterated the origin of modern-day maize in Mexico through simulations, I can now compare the resultant genetic architectures to real genetic architecture in maize data. Genotypic and phenotypic data is currently being generated for another 5,000 progeny individuals of maize, from one landrace of 55 parents (sequenced to 25X) that will be available by the start of this fellowship. Existing data is also available publicly for $\sim$1500 maize genomes through the HapMap 3 and 4 projects (cite) if any unforeseen causes slow the availability of this dataset. 
 
